@@ -8,14 +8,19 @@ const generateMarkdown = require("./utils/generateMarkdown");
 //get user input
 const questions = [
         {
-            name: "name",
-            type: "input",
-            message: "Enter your name."
-        },
-        {
             name: "gitName",
             type: "input",
             message: "Enter your GitHub username."
+        },
+        {
+            name: "title",
+            type: "input",
+            message: "Enter your project title."
+        },
+        {
+            name: "gitName",
+            type: "description",
+            message: "Write a description of your project."
         },
         {
             name: "email",
@@ -31,15 +36,16 @@ const questions = [
     //     });
 
 function writeToFile(fileName, data) {
-    return fs.writeFileSync(fileName, data)
+    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
 };
 
 function init() {
     inquirer.prompt(questions).then(response => {
+        console.log("start");
         api
         .getUser(response.gitName)
         .then(({ data })=>{
-            writeToFile("README.MD", generateMarkdown({...response, ...data}));
+            writeToFile("README.md", generateMarkdown({...response, ...data}));
             
         });
     }
