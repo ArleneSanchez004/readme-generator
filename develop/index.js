@@ -18,8 +18,8 @@ const questions = [
             message: "Enter your project title."
         },
         {
-            name: "gitName",
-            type: "description",
+            name: "description",
+            type: "input",
             message: "Write a description of your project."
         },
         {
