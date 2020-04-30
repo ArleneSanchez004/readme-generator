@@ -4,6 +4,7 @@ const axios = require("axios");
 const util = require("util");
 const api = require("./utils/api");
 const generateMarkdown = require("./utils/generateMarkdown");
+const path = require("path");
 
 //get user input
 const questions = [
@@ -26,6 +27,34 @@ const questions = [
             name: "email",
             type: "input",
             message: "Enter your email."
+        },
+        {
+            type: "list",
+            name: "license",
+            message: "What kind of license should your project have?",
+            choices: ["MIT", "APACHE 2.0", "GPL 3.0", "BSD 3", "None"]
+          },
+          {
+            name: "installation",
+            type: "input",
+            message: "What command installs the dependencies?",
+            default: "npm i"
+        },
+        {
+            type: "input",
+            name: "test",
+            message: "What command should be run to run tests?",
+            default: "npm test"
+        },
+        {
+            name: "usage",
+            type: "input",
+            message: "What should the user know about using this repo?"
+        },
+        {
+            name: "contributing",
+            type: "input",
+            message: "What should the user know about contributing to this repo?"
         }
     ];
     
@@ -45,7 +74,9 @@ function init() {
         api
         .getUser(response.gitName)
         .then(({ data })=>{
-            writeToFile("README.md", generateMarkdown({...response, ...data}));
+            console.log(data);
+            
+            writeToFile("README.MD", generateMarkdown({...response, ...data}));
             
         });
     }
