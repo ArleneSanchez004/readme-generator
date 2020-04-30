@@ -1,6 +1,6 @@
 
-# My ReadMe Generator
-[![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/undefined/my-readme-generator)
+# readme-generator
+[![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/undefined/readme-generator)
 
 ## Description
 
@@ -52,5 +52,5 @@ npm test
 
 <img src="https://avatars0.githubusercontent.com/u/53019200?v=4" alt="avatar" style="border-radius: 16px" width="30" />
 
-Thank you for checking out the repo, questions can be directed to: [undefined](https://api.github.com/users/ArleneSanchez004) at null.
+Thank you for checking out the repo, questions can be directed to: [undefined](https://api.github.com/users/ArleneSanchez004) at arlene.sanchez004@gmail.com.
 

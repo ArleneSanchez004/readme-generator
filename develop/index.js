@@ -70,14 +70,14 @@ function writeToFile(fileName, data) {
 
 function init() {
     inquirer.prompt(questions).then(response => {
-        console.log("start");
+        //console.log("start");
         api
         .getUser(response.gitName)
         .then(({ data })=>{
-            console.log(data);
+            //console.log(data.email);
             
-            writeToFile("README.MD", generateMarkdown({...response, ...data}));
-            
+            writeToFile("README.MD", generateMarkdown({ ...data, ...response }));
+            console.log("readme.md has been created.")
         });
     }
     )};
